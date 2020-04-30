@@ -4,7 +4,7 @@
   "description": "API para consulta de dados de assessores/consultores do mercado financeiro e corretoras de investimento.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server",
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
