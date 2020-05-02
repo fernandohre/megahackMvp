@@ -1,5 +1,6 @@
 {
     "server": {
         "port": 80
-    }
+    },
+    "stringConnection": "mongodb+srv://dev:dev@cluster0-5mhok.mongodb.net/financeirodb?retryWrites=true&w=majority"
 }

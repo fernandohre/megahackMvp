@@ -1,12 +1,10 @@
 const express = require('express');
 
-const assessoresConsultores = require('./controllers/consultoresAssessores');
-const corretoras = require('./controllers/corretoras');
+const consultores = require('./controllers/consultores');
 
 const routes = express.Router();
 
-routes.get('/assessoresConsultores/consultar', assessoresConsultores.consultar);
-
-routes.get('/corretoras/consultar', corretoras.consultar);
+routes.get('/consultores/consultar', consultores.consultar);
+routes.post('/consultores/cadastrar', consultores.store);
 
 module.exports = routes;
