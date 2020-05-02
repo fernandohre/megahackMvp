@@ -17,10 +17,7 @@ const ConsultorSchema = new Schema({
         codigo: Number,
         descricao: String
     },
-    profissao: {
-        codigo: Number,
-        descricao: String
-    },
+    profissao: String,
     biografiaProfissional: {
         type: String,
         required: true
