@@ -2,6 +2,8 @@ import React, { Component, } from 'react';
 import CardConsultor from './CardConsultor';
 import Carregamento from './Carregamento'
 import Api from '../services/Api';
+import '../css/ListaDeConsultores.css';
+
 class ListaDeConsultores extends Component {
     state = {
         estaCarregando: true,
@@ -9,33 +11,34 @@ class ListaDeConsultores extends Component {
     }
 
     componentDidMount() {
-        Api.get('/consultores/consultar')
+        Api.get('/consultores/consultarTodos')
             .then(resultado => {
                 this.setState({
                     estaCarregando: false,
-                    consultores: [...resultado]
+                    consultores: [...resultado.data]
                 });
-                console.log(resultado);
             }).catch(error => console.log(error));
     }
     render() {
         return (
-            <div>
-                {/* {this.state.estaCarregando ?
+            <div className="container">
+                {this.state.estaCarregando ?
                     <Carregamento /> :
                     this.state.consultores.map((consultor) => {
                         return (
-                            <div key={consultor._id}>
+                            <div key={consultor._id} className="card-consultor">
                                 <CardConsultor
-                                    nome={consultor[_id].nome}
-                                    biografiaProfissional={consultor[_id].biografiaProfissional}
-                                    urlImagem={consultor[_id].urlImagem}
+                                    id={consultor._id}
+                                    nome={consultor.nome}
+                                    biografiaProfissional={consultor.biografiaProfissional}
+                                    urlImagem={consultor.urlImagem}
                                 />
                             </div>
                         )
-                    }) */}
+                    })
                 }
             </div>
+
         );
     };
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import ListaDeConsultores from './components/ListaDeConsultores';
-
+import Routes from './routes';
 function App() {
   return (
     <div>
-      <ListaDeConsultores />
+      <Routes />
     </div>
   );
 }

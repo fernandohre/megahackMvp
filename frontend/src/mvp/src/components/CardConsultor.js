@@ -7,45 +7,53 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
+    root: {
+        maxWidth: 345,
+    },
+    media: {
+        height: 250,
+    },
+    content: {
+        height: 140,
+        textOverflow: 'ellipsis',
+        overflow: 'hidden'
+    }
 });
 
 const CardConsultor = (props) => {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.urlImagem}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.nome}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.biografiaProfissional}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Compartilhar
-        </Button>
-        <Button size="small" color="primary">
-          Saiba Mais
-        </Button>
-      </CardActions>
-    </Card>
-  );
+    return (
+        <Card className={classes.root}>
+            <CardActionArea>
+                <CardMedia
+                    className={classes.media}
+                    image={props.urlImagem}
+                    title="Contemplative Reptile"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                        {props.nome}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p" className={classes.content}>
+                        {props.biografiaProfissional}
+                    </Typography>
+                </CardContent>
+            </CardActionArea>
+            <CardActions>
+                <Button size="small" color="primary">
+                    Compartilhar
+                </Button>
+
+                <Link to={"/detalhesConsultor/" + props.id}>
+                    <Button size="small" color="primary">Saiba mais</Button>
+                </Link>
+
+            </CardActions>
+        </Card >
+    );
 }
 export default CardConsultor;

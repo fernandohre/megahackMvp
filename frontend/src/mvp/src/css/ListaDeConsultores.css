@@ -1,0 +1,40 @@
+.container {
+    display: block;
+    width: 100%;
+  }
+  
+  .card-consultor {
+    float: left;
+    margin: 1px;
+    padding: 10px 3px;
+    /*setting width for each and every card element as well as -10px for removing the margin width for 5 elements*/
+    width: calc( 100% / 3 - 10px);
+  }
+  
+  
+  /*first element*/
+  
+  .container .card-consultor:first-child {
+    margin-left: 0;
+  }
+  
+  
+  /*last element of the first row*/
+  
+  .container .card-consultor:nth-child(5n) {
+    margin-right: 0;
+  }
+  
+  
+  /*first-element of the 2nd row*/
+  
+  .container .card-consultor:nth-child(5n+1) {
+    margin-left: 0;
+  }
+  
+  
+  /*last element*/
+  
+  .container .card-consultor:last-child {
+    margin-right: 0;
+  }
