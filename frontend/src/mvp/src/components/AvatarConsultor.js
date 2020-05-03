@@ -4,12 +4,16 @@ import Avatar from '@material-ui/core/Avatar';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 const StyledBadge = withStyles((theme) => ({
+  dot: {
+    height: '30px',
+    width: '30px'
+  },
   badge: {
     backgroundColor: '#44b700',
     color: '#44b700',
     boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
     '&::after': {
-      position: 'absolute',
+      position: 'relative',
       top: 0,
       left: 0,
       width: '100%',
@@ -39,7 +43,10 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  
+  circle: {
+    height: '250px',
+    width: '250px'
+  },
 }));
 
 const AvatarConsultor = (props) => {
@@ -55,9 +62,9 @@ const AvatarConsultor = (props) => {
         }}
         variant="dot"
       >
-        <Avatar alt="Remy Sharp" src={props.urlImagem} />
+        <Avatar className={classes.circle} alt="Remy Sharp" src={props.urlImagem} />
       </StyledBadge>
-      
+
     </div>
   );
 }
