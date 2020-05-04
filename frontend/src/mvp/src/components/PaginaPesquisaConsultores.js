@@ -1,8 +1,9 @@
 import React, { Component, } from 'react';
-import CabecalhoPagina  from './CabecalhoPagina';
+import CabecalhoPagina from './CabecalhoPagina';
 import ListaDeConsultores from './ListaDeConsultores';
 import InputPesquisa from './InputPesquisa';
 import Api from '../services/Api';
+import Carregamento from './Carregamento'
 const style = {
     marginLeft: '8%'
 }
@@ -28,7 +29,7 @@ class PaginaPesquisaConsultores extends Component {
 
     selecionarEspecialidade = (valor) => {
         debugger;
-        if (!valor || !valor.codigo ||valor.codigo === 0) {
+        if (!valor || !valor.codigo || valor.codigo === 0) {
             this.carregueConsultores();
             return;
         }
@@ -39,7 +40,7 @@ class PaginaPesquisaConsultores extends Component {
                 return consultor.especialidade === valor.codigo;
             })
         });
-    } 
+    }
 
     render() {
         return (
@@ -47,11 +48,16 @@ class PaginaPesquisaConsultores extends Component {
                 <CabecalhoPagina nome="Início" />
                 <div style={style}>
                     <br />
-                    <InputPesquisa selecionarEspecialidade={this.selecionarEspecialidade}/>
-                    <ListaDeConsultores
-                        especialidade={this.state.especialidadeSelecionada}
-                        consultores={this.state.consultores}
-                    />
+                    <InputPesquisa selecionarEspecialidade={this.selecionarEspecialidade} />
+                    {
+                        this.state.estaCarregando ?
+                            <Carregamento /> : 
+                            <ListaDeConsultores
+                                especialidade={this.state.especialidadeSelecionada}
+                                consultores={this.state.consultores}
+                            />
+                    }
+
                 </div>
             </div>
         );

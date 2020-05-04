@@ -1,6 +1,5 @@
 import React from 'react';
 import CardConsultor from './CardConsultor';
-import Carregamento from './Carregamento'
 import '../css/ListaDeConsultores.css';
 
 const ListaDeConsultores = (props) => {
@@ -9,8 +8,7 @@ const ListaDeConsultores = (props) => {
     return (
         <div className="container">
             <br />
-            {props.estaCarregando ?
-                <Carregamento /> :
+            {
                 props.consultores.map((consultor) => {
                     return (
                         <div key={consultor._id} className="card-consultor">
