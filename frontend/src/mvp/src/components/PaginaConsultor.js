@@ -2,10 +2,11 @@ import React, { Component, } from 'react';
 import AvatarConsultor from './AvatarConsultor';
 import Api from '../services/Api';
 import Carregamento from './Carregamento';
-import CabecalhoPaginaConsultor from './CabecalhoPaginaConsultor';
-import Fab from '@material-ui/core/Fab';
-import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
-import '../css/BotaoFlutuante.css';
+import CabecalhoPagina from './CabecalhoPagina';
+import '../css/PaginaConsultor.css';
+import WebChat from './WebChat';
+import GridPlanosConsultor from './GridPlanosConsultor';
+
 class PaginaConsultor extends Component {
     constructor({ match }) {
         super();
@@ -33,16 +34,25 @@ class PaginaConsultor extends Component {
     render() {
         return (
             <div>
-                <CabecalhoPaginaConsultor nome={this.state.consultor.nome} />
+                <CabecalhoPagina nome={this.state.consultor.nome} />
                 {
                     this.state.estaCarregando ?
                         <Carregamento /> :
-                        <AvatarConsultor urlImagem={this.state.consultor.urlImagem} />
+                        <div>
+                            <div className="pagina-consultor-avatar">
+                                <AvatarConsultor urlImagem={this.state.consultor.urlImagem} />
+                            </div>
+                        </div>
+                }
+                {
+                    this.state.estaCarregando ?
+                        <Carregamento /> :
+                        <GridPlanosConsultor
+                            planos={this.state.consultor.planos}
+                        />
                 }
                 <div className="botao-flutuante">
-                    <Fab color="primary" aria-label="add">
-                        <ChatBubbleOutlineIcon />
-                    </Fab>
+                    <WebChat nome={this.state.consultor.nome} />
                 </div>
             </div>
         )

@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CabecalhoPaginaConsultor = (props) => {
+const CabecalhoPagina = (props) => {
   const classes = useStyles();
 
   return (
@@ -36,4 +36,4 @@ const CabecalhoPaginaConsultor = (props) => {
     </div>
   );
 }
-export default CabecalhoPaginaConsultor;
+export default CabecalhoPagina;
